@@ -103,6 +103,9 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+
+  uint32_t initial_duty_cycle = (5 * (TIM1->ARR + 1)) / 100;
+  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, initial_duty_cycle);
   /* USER CODE END 2 */
 
   /* Infinite loop */
